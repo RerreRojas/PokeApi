@@ -1,24 +1,15 @@
-# poke-api
+# Pokémon Guessing Game
+Este proyecto es una aplicación de Vue.js que permite a los usuarios adivinar los nombres de diferentes Pokémon. Utiliza la API de Pokémon para obtener datos sobre varios Pokémon y muestra tarjetas coloreadas de Pokémon en una cuadrícula.
 
-## Project setup
-```
-npm install
-```
+## Estructura del Proyecto
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+* App.vue: Componente principal de la aplicación.
+* PokeCard.vue: Componente hijo utilizado para mostrar cada tarjeta de Pokémon.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### Funcionalidades
 
-### Lints and fixes files
-```
-npm run lint
-```
+* Mostrar una lista de Pokémon obtenidos aleatoriamente de la API de Pokémon.
+* Permitir a los usuarios adivinar el nombre de cada Pokémon.
+* Marcar un Pokémon como adivinado correctamente si el usuario ingresa el nombre correcto.
+* Contar y mostrar el número total de Pokémon adivinados correctamente.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
