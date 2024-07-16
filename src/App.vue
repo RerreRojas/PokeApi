@@ -1,19 +1,20 @@
 <template>
-  <div >
-    <img src="./assets/WhatsApp Image 2024-07-12 at 21.10.03.jpeg" alt="pokemon">
+  <div>
+    <img src="./assets/ED7FFF21-A4F8-463B-B446-B93DD3FE2DA6.png" alt="pokemon">
     <h1>¿Quién es ese Pokemón?</h1>
-    <h5>Pokémons descubiertos: </h5> <h5 class="amarillo">{{ countGuessed }}</h5>
+    <h5>Pokémons descubiertos: </h5>
+    <h5 class="amarillo">{{ countGuessed }}</h5>
     <div class="container">
       <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">
-        
-        
 
-          <div class="col" v-for="(pokemon) in pokemones" :key="pokemon.name">
+        <div class="col" v-for="(pokemon) in pokemones" :key="pokemon.name">
+          <div class="card">
             <poke-card :pokemon="pokemon" @guess="checkGuess" />
             <p v-if="pokemon.guessed">{{ pokemon.name }}</p>
           </div>
 
-        
+        </div>
+
       </div>
     </div>
 
@@ -47,9 +48,9 @@ export default {
   },
   methods: {
     async getPokemons() {
-      const random = Math.floor(Math.random() * 1300) 
+      const random = Math.floor(Math.random() * 151)
       const URL_BASE = `https://pokeapi.co/api/v2/pokemon/?limit=20&offset=${random}`;
-      
+
       try {
         const responseApi = await axios.get(URL_BASE);
         const primerLlamado = responseApi.data.results;
@@ -80,13 +81,28 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+img {
+  
+  width: clamp(300px, 30vw, 600px);
 }
-.amarillo{color: rgb(198, 191, 86);}
+
+body {
+  text-align: center;
+  font-family: "Press Start 2P", system-ui;
+  background-color: rgb(26, 25, 25);
+  color: white;
+}
+
+.amarillo {
+  color: rgb(198, 191, 86);
+}
+
+.card {
+  height: 18rem;
+  margin: 0.5rem;
+  margin-top: 60px;
+  text-align: center;
+  border-color: red;
+  border-width: medium;
+}
 </style>

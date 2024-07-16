@@ -1,11 +1,7 @@
 <template>
-  <div class="card">
-    <img
-      :src="pokemon.image"
-      :alt="pokemon.name"
-      :class="{ 'blurred': !pokemon.guessed, 'guessed': pokemon.guessed }"
-      class="img-fluid"
-    />
+  <div class="oculta">
+    <img :src="pokemon.image" :alt="pokemon.name" :class="{ 'blurred': !pokemon.guessed, 'guessed': pokemon.guessed }"
+      class="img-fluid" />
     <div v-if="!pokemon.guessed">
       <input type="text" v-model="guessInput" @keyup.enter="makeGuess" placeholder="Ingrese el nombre"> <br>
       <button @click="makeGuess">Descubrir</button>
@@ -37,21 +33,38 @@ export default {
 
 <style scoped>
 .blurred {
-  filter:  grayscale(100%) blur(5px); /* Aplicar un filtro de desenfoque */
+  filter: grayscale(100%) blur(5px);
+  /* Aplicar un filtro de desenfoque */
 }
 
 .guessed {
-  filter: none; /* Eliminar cualquier filtro si el Pokémon ha sido adivinado */
+  filter: none;
+  /* Eliminar cualquier filtro si el Pokémon ha sido adivinado */
 }
 
 input {
-  margin-right: 5px;
+  font-size: 10px;
 }
 
 button {
+  padding: 10px;
   margin-top: 5px;
+  background-color: #FFCB03;
+  border-color: #335CA6;
+  border-width: medium;
+  border-radius: 25px;
+  color: #335CA6;
+  font-weight: bolder;
+
 }
-img{height: 12rem;}
-.card{height: 20rem;
-padding: 2rem;}
+
+img {
+  height: 10rem;
+  margin-bottom: 1rem;
+}
+
+.oculta {
+  height: 18rem;
+  padding: 0.8rem;
+}
 </style>
